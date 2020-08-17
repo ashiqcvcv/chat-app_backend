@@ -4,7 +4,7 @@ const { Router } = require('express');
 
 // App setup
 var app = express();
-var server = app.listen(3000, function(){
+var server = app.listen(process.env.PORT, function(){
     console.log('listening for requests on port 3000');
 });
 
