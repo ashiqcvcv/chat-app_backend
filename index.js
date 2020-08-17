@@ -40,6 +40,11 @@ function onConnect(socket){
         }
     })
     socket.on('joinOne',function(checkfriend){
+        for(key in active){
+            if(active[key] == null){
+                delete active[key]
+            }
+        }
         if(checkfriend in active){
             var sender = getUser(active,socket.id);
             io.to(active[checkfriend]).emit('joinChat',{
