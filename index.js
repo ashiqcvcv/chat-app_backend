@@ -10,6 +10,10 @@ var server = app.listen(3000, function () {
     console.log('listening for requests on port 3000');
 });
 
+app.get('/getOnlineList', (req,res, next) => {
+    res.send(Object.keys(active));
+})
+
 // Socket setup
 var io = socket(server);
 var active = {}
@@ -75,7 +79,3 @@ function onConnect(socket) {
 
 }
 
-
-app.get('/getOnlineList', (req,res, next) => {
-    res.send(Object.keys(active));
-})
