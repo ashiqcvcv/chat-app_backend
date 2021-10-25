@@ -6,7 +6,7 @@ const cors = require('cors');
 // App setup
 var app = express();
 app.use(cors());
-var server = app.listen(3000, function () {
+var server = app.listen(3000 || process.env.PORT, function () {
     console.log('listening for requests on port 3000');
 });
 
