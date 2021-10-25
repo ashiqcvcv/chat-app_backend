@@ -24,7 +24,8 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-var server = app.listen(3000 || process.env.PORT, function () {
+app.set('port',process.env.PORT || 3000);
+var server = app.listen(app.get('port'), function () {
     console.log('listening for requests on port 3000');
 });
 
